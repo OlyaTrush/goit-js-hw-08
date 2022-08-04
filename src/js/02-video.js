@@ -19,15 +19,6 @@ player.on(
 
 const stopTime = localStorage.getItem(TIME_KEY);
 
-player
-  .setCurrentTime(stopTime)
-  .then(function (seconds) {})
-  .catch(function (error) {
-    switch (error.name) {
-      case 'RangeError':
-        break;
-      default:
-        break;
-    }
-  });
+player.setCurrentTime(stopTime);
+  
 

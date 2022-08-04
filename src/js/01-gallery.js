@@ -30,17 +30,3 @@ let lightbox = new SimpleLightbox('.gallery a', {
 });
 
 
-function onGalleryContainerClick(e) {
-
-  if (e.target.nodeName !== "IMG") {
-    return;
-  }
-
-  window.addEventListener('keydown', e => {
-    if (e.key === 'Escape') {
-      instance.close();
-    }
-  });
-}
-
-galleryContainer.addEventListener('click', onGalleryContainerClick, once);

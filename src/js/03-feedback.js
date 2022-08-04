@@ -21,10 +21,7 @@ const refs = {
 
 const STORAGE_KEY = 'feedback-form-state';
 
-let formData = {
-  email: '',
-  message: '',
-};
+let formData = {};
 
 const onInputForm = e => {
   formData[e.target.name] = e.target.value;
@@ -38,9 +35,8 @@ const onResetPage = () => {
   if (currentData) {
     refs.input.value = currentData.email;
     refs.textarea.value = currentData.message;
-
-    formData.email = currentData.email;
-    formData.message = currentData.message;
+    formData = currentData;
+    
   }
 };
 
@@ -55,9 +51,8 @@ const onSubmitForm = e => {
   }
   localStorage.removeItem(STORAGE_KEY);
   e.currentTarget.reset();
-  formData.email = '';
-  formData.message = '';
   console.log(formData);
+  formData = {};
 };
 
 refs.form.addEventListener('submit', onSubmitForm);
