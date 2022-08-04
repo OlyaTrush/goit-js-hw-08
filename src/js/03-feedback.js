@@ -30,7 +30,7 @@ const onInputForm = e => {
 
 refs.form.addEventListener('input', throttle(onInputForm, 500));
 
-const onResetPage = () => {
+const onLoadPage = () => {
   let currentData = JSON.parse(localStorage.getItem(STORAGE_KEY));
   if (currentData) {
     refs.input.value = currentData.email;
@@ -40,7 +40,7 @@ const onResetPage = () => {
   }
 };
 
-onResetPage();
+onLoadPage();
 
 const onSubmitForm = e => {
   e.preventDefault();
